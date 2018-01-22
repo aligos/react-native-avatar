@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 import {
   View,
   Text,
@@ -9,16 +9,16 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   TouchableNativeFeedback,
-  TouchableWithoutFeedback,
-} from 'react-native';
+  TouchableWithoutFeedback
+} from "react-native";
 
-import ViewPropTypes from '../config/ViewPropTypes';
+import ViewPropTypes from "./config/ViewPropTypes";
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const DEFAULT_COLORS = ['#000', '#333', '#555', '#888', '#aaa', '#ddd'];
+const DEFAULT_COLORS = ["#000", "#333", "#555", "#888", "#aaa", "#ddd"];
 
-const Avatar = (props) => {
+const Avatar = props => {
   const {
     component,
     onPress,
@@ -83,7 +83,7 @@ const Avatar = (props) => {
       const editButtonSizeStyle = {
         width: editButtonSize,
         height: editButtonSize,
-        borderRadius: editButtonSize / 2,
+        borderRadius: editButtonSize / 2
       };
       const editButtonIconSize = editButtonSize * 0.8;
 
@@ -92,7 +92,7 @@ const Avatar = (props) => {
           style={[
             styles.editButton,
             editButtonSizeStyle,
-            editButtonProps.style,
+            editButtonProps.style
           ]}
           underlayColor={editButtonProps.underlayColor}
           onPress={onEditPress}
@@ -117,7 +117,7 @@ const Avatar = (props) => {
           style={[
             styles.avatar,
             rounded && { borderRadius: width / 2 },
-            avatarStyle && avatarStyle,
+            avatarStyle && avatarStyle
           ]}
           source={source}
         />
@@ -130,8 +130,8 @@ const Avatar = (props) => {
       return (
         <Icon
           style={iconStyle && iconStyle}
-          color={icon.color || 'white'}
-          name={icon.name || 'user'}
+          color={icon.color || "white"}
+          name={icon.name || "user"}
           size={icon.size || iconSize}
           type={icon.type && icon.type}
         />
@@ -141,51 +141,51 @@ const Avatar = (props) => {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
       width: width,
-      height: height,
+      height: height
     },
     avatar: {
       width: width,
-      height: height,
+      height: height
     },
     overlayContainer: {
       flex: 1,
-      alignItems: 'center',
-      backgroundColor: 'rgba(0,0,0,0.2)',
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-      position: 'absolute',
+      alignItems: "center",
+      backgroundColor: "rgba(0,0,0,0.2)",
+      alignSelf: "stretch",
+      justifyContent: "center",
+      position: "absolute",
       top: 0,
       left: 0,
       right: 0,
-      bottom: 0,
+      bottom: 0
     },
     title: {
-      color: '#ffffff',
+      color: "#ffffff",
       fontSize: titleSize,
-      backgroundColor: 'rgba(0,0,0,0)',
-      textAlign: 'center',
+      backgroundColor: "rgba(0,0,0,0)",
+      textAlign: "center"
     },
     editButton: {
-      position: 'absolute',
+      position: "absolute",
       bottom: 0,
       right: 0,
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
       backgroundColor: DEFAULT_COLORS[4],
       ...Platform.select({
         ios: {
           shadowColor: DEFAULT_COLORS[0],
           shadowOffset: { width: 1, height: 1 },
           shadowRadius: 2,
-          shadowOpacity: 0.5,
+          shadowOpacity: 0.5
         },
         android: {
-          elevation: 1,
-        },
-      }),
-    },
+          elevation: 1
+        }
+      })
+    }
   });
 
   return (
@@ -196,7 +196,7 @@ const Avatar = (props) => {
       style={[
         styles.container,
         rounded && { borderRadius: width / 2 },
-        containerStyle && containerStyle,
+        containerStyle && containerStyle
       ]}
       {...attributes}
     >
@@ -204,7 +204,7 @@ const Avatar = (props) => {
         style={[
           styles.overlayContainer,
           rounded && { borderRadius: width / 2 },
-          overlayContainerStyle && overlayContainerStyle,
+          overlayContainerStyle && overlayContainerStyle
         ]}
       >
         {renderContent()}
@@ -219,12 +219,12 @@ const defaultProps = {
   onEditPress: null,
   editButton: {
     size: null,
-    iconName: 'mode-edit',
-    iconType: 'material',
-    iconColor: '#fff',
+    iconName: "mode-edit",
+    iconType: "material",
+    iconColor: "#fff",
     underlayColor: DEFAULT_COLORS[0],
-    style: null,
-  },
+    style: null
+  }
 };
 
 Avatar.propTypes = {
@@ -233,7 +233,7 @@ Avatar.propTypes = {
     TouchableOpacity,
     TouchableHighlight,
     TouchableNativeFeedback,
-    TouchableWithoutFeedback,
+    TouchableWithoutFeedback
   ]),
   width: PropTypes.number,
   height: PropTypes.number,
@@ -261,8 +261,8 @@ Avatar.propTypes = {
     iconType: PropTypes.string,
     iconColor: PropTypes.string,
     underlayColor: PropTypes.string,
-    style: ViewPropTypes.style,
-  }),
+    style: ViewPropTypes.style
+  })
 };
 
 Avatar.defaultProps = defaultProps;
